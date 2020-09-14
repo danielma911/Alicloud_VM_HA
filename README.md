@@ -34,14 +34,14 @@ The Terraform deployment below architecture:
 2. terraform init
 3. terraform apply
 4. Demo infra will be deployed, and you can expect below error:
-Error: [ERROR] terraform-provider-alicloud/alicloud/resource_alicloud_fc_function.go:173: Resource alicloud_fc_function CreateFunction Failed!!! [SDK fc-go-sdk ERROR]:
-[ERROR] terraform-provider-alicloud/alicloud/resource_alicloud_fc_function.go:166:
-{
-  "HttpStatus": 400,
-  "RequestId": "87b2f37d-1286-4ff3-99b6-ea521deb87ec",
-  "ErrorCode": "InvalidArgument",
-  "ErrorMessage": "Environment variable value doesn't match expected format (allowed: ^[[:print:]]+$, actual: '')"
-}
+    Error: [ERROR] terraform-provider-alicloud/alicloud/resource_alicloud_fc_function.go:173: Resource alicloud_fc_function CreateFunction Failed!!! [SDK fc-go-sdk ERROR]:
+    [ERROR] terraform-provider-alicloud/alicloud/resource_alicloud_fc_function.go:166:
+    {
+      "HttpStatus": 400,
+      "RequestId": "87b2f37d-1286-4ff3-99b6-ea521deb87ec",
+      "ErrorCode": "InvalidArgument",
+      "ErrorMessage": "Environment variable value doesn't match expected format (allowed: ^[[:print:]]+$, actual: '')"
+    }
 
   on main.tf line 353, in resource "alicloud_fc_function" "active-standby":
  353: resource "alicloud_fc_function" "active-standby" {
@@ -55,15 +55,15 @@ Until the "API_KEY" hhas a value back, like below:
 
 7. When finished, it will shows up necessary info for you to continue:
 
-Outputs:
+    Outputs:
 
-SLB-IP-Address = 10.0.6.82
+    SLB-IP-Address = 10.0.6.82
 
-VM-Series-MGMTIP = 47.242.129.211
+    VM-Series-MGMTIP = 47.242.129.211
 
-VM-Series-MGMTIP-2 = 47.242.92.207
+    VM-Series-MGMTIP-2 = 47.242.92.207
 
-VM-Series-UNTRUSTIP = 8.210.183.24 *** Please manually attach this IP to Untrust ENI. ***
+    VM-Series-UNTRUSTIP = 8.210.183.24 *** Please manually attach this IP to Untrust ENI. ***
 
 
 8. Access the Primary and Standby NGFW with the IP address output "VM-Series-MGMTIP", "VM-Series-MGMTIP-2" with username and password for your image.
