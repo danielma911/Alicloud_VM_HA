@@ -1,3 +1,10 @@
+## This is Developed by Mason Yan and Daniel Ma from Palo Alto Networks. 
+## This is a Demo package to install two VM series NGFW and two nginx servers for HA function on AliCloud. 
+## Now you can use this but has not been fully tested and supported. 
+## Please use or modify it at your own discretion and after sufficient testing..
+
+
+
 # Configure the Alicloud Provider for hk region
 provider "alicloud" {
   access_key = "${var.access_key}"
