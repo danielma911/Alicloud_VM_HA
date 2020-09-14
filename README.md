@@ -47,8 +47,10 @@ The Terraform deployment below architecture:
  353: resource "alicloud_fc_function" "active-standby" {
 
 5. This error is expected, because during the deployment, it will run a script to get the Primary NGFW access_key with pre-defined username and password of the NGFW. It can only success after the primary NGFW up and running. So you need to wait for about 5 mins to run " terraform plan | grep API_KEY " and check if the access_key has been generated. Check for below section:
+
           + "API_KEY"            = ""
-Until the "API_KEY" hhas a value back, like below:
+Until the "API_KEY" has a value back, like below:
+
           + "API_KEY"            = "LUFRPT1WdGx**************************"
 
 6. Now you can run "terraform apply" again to update this key to the FC environment table.
