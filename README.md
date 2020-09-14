@@ -3,7 +3,7 @@
 This is Developed by Mason Yan and Daniel Ma from Palo Alto Networks. This is a Demo package to install two VM series NGFW and two nginx servers for HA function on AliCloud. Now you can use this but has not been fully tested and supported. Please use or modify it at your own discretion and after sufficient testing.. 
 
 The Terraform deployment below architecture:
-![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/nongshalie.jpg)
+![image](https://github.com/danielma911/Alicloud_VM_HA/blob/master/imgs/Architecture_in.png)
 
 # Requirements
 
