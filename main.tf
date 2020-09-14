@@ -5,7 +5,7 @@
 
 
 
-# Configure the Alicloud Provider for hk region
+# Configure the Alicloud Provider for the region
 provider "alicloud" {
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
