@@ -1,0 +1,1554 @@
+{
+  "version": 4,
+  "terraform_version": "0.12.9",
+  "serial": 322,
+  "lineage": "136c48e9-1e5a-dbed-c506-949ca734d19c",
+  "outputs": {
+    "Backup-NGFW-Trust-ENI": {
+      "value": "eni-t4n1x9m4ukfcwkhvz6rb",
+      "type": "string"
+    },
+    "Backup-NGFW-UnTrust-ENI": {
+      "value": "eni-t4n6l5xjhxc45iqi3nwn",
+      "type": "string"
+    },
+    "EIP-Address": {
+      "value": "47.241.66.136",
+      "type": "string"
+    },
+    "EIP-ID": {
+      "value": "sg-t4nfownizhl5hm78i2w1",
+      "type": "string"
+    },
+    "Primary-NGFW-Trust-ENI": {
+      "value": "eni-t4na9qbsdb0z81lg3eim",
+      "type": "string"
+    },
+    "Primary-NGFW-UnTrust-ENI": {
+      "value": "eni-t4ni4w5im9ojz7nr3d0l",
+      "type": "string"
+    },
+    "Region-ID": {
+      "value": "ap-southeast-1",
+      "type": "string"
+    },
+    "Route-Table-ID": {
+      "value": "vtb-t4nn9mrlzykm83yi2grwr \n\n",
+      "type": "string"
+    },
+    "VM-Series-MGMTIP": {
+      "value": "47.241.39.33",
+      "type": "string"
+    },
+    "VM-Series-MGMTIP-2": {
+      "value": "47.241.64.244",
+      "type": "string"
+    },
+    "VM-Series-UNTRUSTIP": {
+      "value": "47.241.66.136 *** Please manually attach this IP to Untrust ENI. *** \n\n",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.fw_deployment",
+      "mode": "data",
+      "type": "alicloud_eips",
+      "name": "all_eips",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "eips": [
+              {
+                "bandwidth": "1",
+                "creation_time": "2020-09-10T08:50:53Z",
+                "id": "eip-t4n5y6cxhdwiiup6y3h2h",
+                "instance_id": "",
+                "instance_type": "",
+                "internet_charge_type": "PayByTraffic",
+                "ip_address": "47.241.66.136",
+                "status": "Available"
+              },
+              {
+                "bandwidth": "1",
+                "creation_time": "2020-09-10T08:49:28Z",
+                "id": "eip-t4n36j2n277fkjgo5w401",
+                "instance_id": "i-t4n6l5xjhxc45iqmxtcw",
+                "instance_type": "EcsInstance",
+                "internet_charge_type": "PayByTraffic",
+                "ip_address": "47.241.64.244",
+                "status": "InUse"
+              },
+              {
+                "bandwidth": "1",
+                "creation_time": "2020-09-10T08:49:28Z",
+                "id": "eip-t4nasywvzeg2ww6enqtme",
+                "instance_id": "i-t4nba1mxjcdsky0b0pw9",
+                "instance_type": "EcsInstance",
+                "internet_charge_type": "PayByTraffic",
+                "ip_address": "47.241.39.33",
+                "status": "InUse"
+              }
+            ],
+            "id": "1260773202",
+            "ids": [
+              "eip-t4n5y6cxhdwiiup6y3h2h",
+              "eip-t4n36j2n277fkjgo5w401",
+              "eip-t4nasywvzeg2ww6enqtme"
+            ],
+            "in_use": null,
+            "ip_addresses": null,
+            "names": [
+              "hk-UNTRUST-EIP",
+              "hk-MGMT-EIP-2",
+              "hk-MGMT-EIP"
+            ],
+            "output_file": null,
+            "resource_group_id": null,
+            "tags": null
+          },
+          "depends_on": [
+            "alicloud_eip_association.hk-EIP-Association",
+            "alicloud_eip_association.hk-EIP-Association-2"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "data",
+      "type": "alicloud_eips",
+      "name": "untrust_eip",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "eips": [
+              {
+                "bandwidth": "1",
+                "creation_time": "2020-09-10T08:49:28Z",
+                "id": "eip-t4nasywvzeg2ww6enqtme",
+                "instance_id": "i-t4nba1mxjcdsky0b0pw9",
+                "instance_type": "EcsInstance",
+                "internet_charge_type": "PayByTraffic",
+                "ip_address": "47.241.39.33",
+                "status": "InUse"
+              }
+            ],
+            "id": "1419131370",
+            "ids": [
+              "eip-t4nasywvzeg2ww6enqtme"
+            ],
+            "in_use": null,
+            "ip_addresses": null,
+            "names": [
+              "hk-MGMT-EIP"
+            ],
+            "output_file": null,
+            "resource_group_id": null,
+            "tags": null
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "data",
+      "type": "alicloud_eips",
+      "name": "untrust_eip-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "eips": [
+              {
+                "bandwidth": "1",
+                "creation_time": "2020-09-10T08:49:28Z",
+                "id": "eip-t4n36j2n277fkjgo5w401",
+                "instance_id": "i-t4n6l5xjhxc45iqmxtcw",
+                "instance_type": "EcsInstance",
+                "internet_charge_type": "PayByTraffic",
+                "ip_address": "47.241.64.244",
+                "status": "InUse"
+              }
+            ],
+            "id": "3246244984",
+            "ids": [
+              "eip-t4n36j2n277fkjgo5w401"
+            ],
+            "in_use": null,
+            "ip_addresses": null,
+            "names": [
+              "hk-MGMT-EIP-2"
+            ],
+            "output_file": null,
+            "resource_group_id": null,
+            "tags": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "alicloud_zones",
+      "name": "hk-zone",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "available_disk_category": "cloud_efficiency",
+            "available_instance_type": "ecs.g5.xlarge",
+            "available_resource_creation": null,
+            "available_slb_address_ip_version": null,
+            "available_slb_address_type": null,
+            "enable_details": false,
+            "id": "1135358518",
+            "ids": [
+              "ap-southeast-1a",
+              "ap-southeast-1b",
+              "ap-southeast-1c"
+            ],
+            "instance_charge_type": "PostPaid",
+            "multi": false,
+            "network_type": null,
+            "output_file": null,
+            "spot_strategy": "NoSpot",
+            "zones": [
+              {
+                "available_disk_categories": [],
+                "available_instance_types": [],
+                "available_resource_creation": [],
+                "id": "ap-southeast-1a",
+                "local_name": "",
+                "multi_zone_ids": [],
+                "slb_slave_zone_ids": []
+              },
+              {
+                "available_disk_categories": [],
+                "available_instance_types": [],
+                "available_resource_creation": [],
+                "id": "ap-southeast-1b",
+                "local_name": "",
+                "multi_zone_ids": [],
+                "slb_slave_zone_ids": []
+              },
+              {
+                "available_disk_categories": [],
+                "available_instance_types": [],
+                "available_resource_creation": [],
+                "id": "ap-southeast-1c",
+                "local_name": "",
+                "multi_zone_ids": [],
+                "slb_slave_zone_ids": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_eip",
+      "name": "hk-MGMT-EIP",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bandwidth": 1,
+            "description": "Public IP assigned to hk Mgmt",
+            "id": "eip-t4nasywvzeg2ww6enqtme",
+            "instance_charge_type": "PostPaid",
+            "internet_charge_type": "PayByTraffic",
+            "ip_address": "47.241.39.33",
+            "isp": "BGP",
+            "name": "hk-MGMT-EIP",
+            "period": null,
+            "resource_group_id": "rg-acfntxhh7nl4ofi",
+            "status": "InUse",
+            "tags": {}
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_eip",
+      "name": "hk-MGMT-EIP-2",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bandwidth": 1,
+            "description": "Public IP assigned to hk Mgmt-backup",
+            "id": "eip-t4n36j2n277fkjgo5w401",
+            "instance_charge_type": "PostPaid",
+            "internet_charge_type": "PayByTraffic",
+            "ip_address": "47.241.64.244",
+            "isp": "BGP",
+            "name": "hk-MGMT-EIP-2",
+            "period": null,
+            "resource_group_id": "rg-acfntxhh7nl4ofi",
+            "status": "InUse",
+            "tags": {}
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_eip",
+      "name": "hk-UNTRUST-EIP",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bandwidth": 1,
+            "description": "Public IP assigned to hk Untrust interface",
+            "id": "eip-t4n5y6cxhdwiiup6y3h2h",
+            "instance_charge_type": "PostPaid",
+            "internet_charge_type": "PayByTraffic",
+            "ip_address": "47.241.66.136",
+            "isp": "BGP",
+            "name": "hk-UNTRUST-EIP",
+            "period": null,
+            "resource_group_id": "rg-acfntxhh7nl4ofi",
+            "status": "Available",
+            "tags": {}
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "module.fw_deployment"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_eip_association",
+      "name": "hk-EIP-Association",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_id": "eip-t4nasywvzeg2ww6enqtme",
+            "id": "eip-t4nasywvzeg2ww6enqtme:i-t4nba1mxjcdsky0b0pw9",
+            "instance_id": "i-t4nba1mxjcdsky0b0pw9",
+            "instance_type": "EcsInstance",
+            "private_ip_address": null
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_eip_association",
+      "name": "hk-EIP-Association-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_id": "eip-t4n36j2n277fkjgo5w401",
+            "id": "eip-t4n36j2n277fkjgo5w401:i-t4n6l5xjhxc45iqmxtcw",
+            "instance_id": "i-t4n6l5xjhxc45iqmxtcw",
+            "instance_type": "EcsInstance",
+            "private_ip_address": null
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk-2"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_fc_function",
+      "name": "active-standby",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "code_checksum": "15530387948981416820",
+            "description": "Palo Alto Active Standby - AliCloud Created by Terraform",
+            "environment_variables": {
+              "API_KEY": "Please create through CLI and update here",
+              "BACKUP_ENI": "eni-t4n1x9m4ukfcwkhvz6rb",
+              "EIP": "47.241.66.136",
+              "EIP_ID": "sg-t4nfownizhl5hm78i2w1",
+              "PRIMARYNGFWMGMT_IP": "47.241.39.33",
+              "PRIMARY_ENI": "eni-t4na9qbsdb0z81lg3eim",
+              "PUB_BAK_ENI": "eni-t4n6l5xjhxc45iqi3nwn",
+              "PUB_PRI_ENI": "eni-t4ni4w5im9ojz7nr3d0l",
+              "REGION_ID": "ap-southeast-1",
+              "ROUTETB_ID": "vtb-t4nn9mrlzykm83yi2grwr",
+              "managedby": "Created with Terraform"
+            },
+            "filename": "./func/index.zip",
+            "function_id": "a8697ea6-9681-4e6d-acf0-499c9fb63e45",
+            "handler": "index.handler",
+            "id": "HA_Function_Service-axx:paloalto-failover-service-axx",
+            "last_modified": "2020-09-10T08:50:55Z",
+            "memory_size": 128,
+            "name": "paloalto-failover-service-axx",
+            "name_prefix": null,
+            "oss_bucket": null,
+            "oss_key": null,
+            "runtime": "python3",
+            "service": "HA_Function_Service-axx",
+            "timeout": 60
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_eip.hk-MGMT-EIP",
+            "alicloud_eip.hk-UNTRUST-EIP",
+            "alicloud_fc_service.paloalto-failover-service",
+            "alicloud_security_group.hk-UNTRUST-SG",
+            "alicloud_vpc.hk_vpc",
+            "module.fw_deployment",
+            "random_string.random_name_post"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_fc_service",
+      "name": "paloalto-failover-service",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Created by terraform",
+            "id": "HA_Function_Service-axx",
+            "internet_access": true,
+            "last_modified": "2020-09-10T08:50:55Z",
+            "log_config": [],
+            "name": "HA_Function_Service-axx",
+            "name_prefix": null,
+            "role": "acs:ram::5270936092657429:role/functioncompute-ram-role-axx",
+            "service_id": "51f1309a-45e9-4aea-860b-1da7b1deb95e",
+            "vpc_config": []
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_ram_role.ram_role",
+            "random_string.random_name_post"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_fc_trigger",
+      "name": "timer",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "config": "{\"payload\":\"\",\"cronExpression\":\"@every 1m\",\"enable\":true}",
+            "config_mns": null,
+            "function": "paloalto-failover-service-axx",
+            "id": "HA_Function_Service-axx:paloalto-failover-service-axx:CronTrigger",
+            "last_modified": "2020-09-10T09:49:54Z",
+            "name": "CronTrigger",
+            "name_prefix": null,
+            "role": "",
+            "service": "HA_Function_Service-axx",
+            "source_arn": "",
+            "trigger_id": "92cde0d6-7112-4d09-8551-1f5767a460e5",
+            "type": "timer"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_fc_function.active-standby",
+            "alicloud_fc_service.paloalto-failover-service"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_instance",
+      "name": "hk",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocate_public_ip": null,
+            "auto_release_time": "",
+            "auto_renew_period": null,
+            "availability_zone": "ap-southeast-1a",
+            "credit_specification": "",
+            "data_disks": [],
+            "deletion_protection": false,
+            "description": "VM-series instance DEMO",
+            "dry_run": false,
+            "force_delete": null,
+            "host_name": "iZt4nba1mxjcdsky0b0pw9Z",
+            "id": "i-t4nba1mxjcdsky0b0pw9",
+            "image_id": "m-t4nf2uxmm5gr43xm7kjp",
+            "include_data_disks": null,
+            "instance_charge_type": "PostPaid",
+            "instance_name": "VMGW_hk",
+            "instance_type": "ecs.g5.xlarge",
+            "internet_charge_type": "",
+            "internet_max_bandwidth_in": -1,
+            "internet_max_bandwidth_out": 0,
+            "io_optimized": null,
+            "is_outdated": null,
+            "key_name": "",
+            "kms_encrypted_password": null,
+            "kms_encryption_context": null,
+            "password": "",
+            "period": null,
+            "period_unit": null,
+            "private_ip": "10.0.4.20",
+            "public_ip": "",
+            "renewal_status": null,
+            "resource_group_id": "",
+            "role_name": "",
+            "security_enhancement_strategy": "Active",
+            "security_groups": [
+              "sg-t4ni3yyyio0zgkcqzokw"
+            ],
+            "spot_price_limit": 0,
+            "spot_strategy": "NoSpot",
+            "status": "Running",
+            "subnet_id": "vsw-t4ned6bngimhu1c90otx6",
+            "system_disk_auto_snapshot_policy_id": "",
+            "system_disk_category": "cloud_efficiency",
+            "system_disk_size": 80,
+            "tags": {},
+            "timeouts": null,
+            "user_data": "",
+            "volume_tags": {},
+            "vswitch_id": "vsw-t4ned6bngimhu1c90otx6"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_instance",
+      "name": "hk-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocate_public_ip": null,
+            "auto_release_time": "",
+            "auto_renew_period": null,
+            "availability_zone": "ap-southeast-1b",
+            "credit_specification": "",
+            "data_disks": [],
+            "deletion_protection": false,
+            "description": "VM-series instance DEMO-2",
+            "dry_run": false,
+            "force_delete": null,
+            "host_name": "iZt4n6l5xjhxc45iqmxtcwZ",
+            "id": "i-t4n6l5xjhxc45iqmxtcw",
+            "image_id": "m-t4n59ju53utcnf1a9rka",
+            "include_data_disks": null,
+            "instance_charge_type": "PostPaid",
+            "instance_name": "VMGW_hk-2",
+            "instance_type": "ecs.g5.xlarge",
+            "internet_charge_type": "",
+            "internet_max_bandwidth_in": -1,
+            "internet_max_bandwidth_out": 0,
+            "io_optimized": null,
+            "is_outdated": null,
+            "key_name": "",
+            "kms_encrypted_password": null,
+            "kms_encryption_context": null,
+            "password": "",
+            "period": null,
+            "period_unit": null,
+            "private_ip": "10.0.7.20",
+            "public_ip": "",
+            "renewal_status": null,
+            "resource_group_id": "",
+            "role_name": "",
+            "security_enhancement_strategy": "Active",
+            "security_groups": [
+              "sg-t4ni3yyyio0zgkcqzokw"
+            ],
+            "spot_price_limit": 0,
+            "spot_strategy": "NoSpot",
+            "status": "Running",
+            "subnet_id": "vsw-t4n3e9ynz8hfms5m01wkg",
+            "system_disk_auto_snapshot_policy_id": "",
+            "system_disk_category": "cloud_efficiency",
+            "system_disk_size": 80,
+            "tags": {},
+            "timeouts": null,
+            "user_data": "",
+            "volume_tags": {},
+            "vswitch_id": "vsw-t4n3e9ynz8hfms5m01wkg"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_instance",
+      "name": "webserver-1",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocate_public_ip": null,
+            "auto_release_time": "",
+            "auto_renew_period": null,
+            "availability_zone": "ap-southeast-1a",
+            "credit_specification": "Standard",
+            "data_disks": [],
+            "deletion_protection": false,
+            "description": "webserver-1",
+            "dry_run": false,
+            "force_delete": null,
+            "host_name": "webserver-1",
+            "id": "i-t4naikpg0imezbjtyq5w",
+            "image_id": "m-t4n6sctos4o76zuat9wl",
+            "include_data_disks": null,
+            "instance_charge_type": "PostPaid",
+            "instance_name": "webserver-1",
+            "instance_type": "ecs.t5-c1m1.large",
+            "internet_charge_type": "PayByTraffic",
+            "internet_max_bandwidth_in": -1,
+            "internet_max_bandwidth_out": 0,
+            "io_optimized": null,
+            "is_outdated": null,
+            "key_name": "",
+            "kms_encrypted_password": null,
+            "kms_encryption_context": null,
+            "password": "",
+            "period": null,
+            "period_unit": null,
+            "private_ip": "10.0.6.50",
+            "public_ip": "",
+            "renewal_status": null,
+            "resource_group_id": "",
+            "role_name": null,
+            "security_enhancement_strategy": "Active",
+            "security_groups": [
+              "sg-t4n7epc8vfl1nqk4b20x"
+            ],
+            "spot_price_limit": 0,
+            "spot_strategy": "NoSpot",
+            "status": "Running",
+            "subnet_id": "vsw-t4nf6oqkqmowfhfs1dfqm",
+            "system_disk_auto_snapshot_policy_id": "",
+            "system_disk_category": "cloud_efficiency",
+            "system_disk_size": 40,
+            "tags": null,
+            "timeouts": null,
+            "user_data": null,
+            "volume_tags": {},
+            "vswitch_id": "vsw-t4nf6oqkqmowfhfs1dfqm"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "depends_on": [
+            "alicloud_security_group.hk-TRUST-SG",
+            "alicloud_vswitch.hk-data-trust-vswitch"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_instance",
+      "name": "webserver-2",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocate_public_ip": null,
+            "auto_release_time": "",
+            "auto_renew_period": null,
+            "availability_zone": "ap-southeast-1b",
+            "credit_specification": "Standard",
+            "data_disks": [],
+            "deletion_protection": false,
+            "description": "webserver-2",
+            "dry_run": false,
+            "force_delete": null,
+            "host_name": "webserver-2",
+            "id": "i-t4n2n3zixk2qxzmery2w",
+            "image_id": "m-t4n42c1i4urwxi5rqqea",
+            "include_data_disks": null,
+            "instance_charge_type": "PostPaid",
+            "instance_name": "webserver-2",
+            "instance_type": "ecs.t5-c1m1.large",
+            "internet_charge_type": "PayByTraffic",
+            "internet_max_bandwidth_in": -1,
+            "internet_max_bandwidth_out": 0,
+            "io_optimized": null,
+            "is_outdated": null,
+            "key_name": "",
+            "kms_encrypted_password": null,
+            "kms_encryption_context": null,
+            "password": "",
+            "period": null,
+            "period_unit": null,
+            "private_ip": "10.0.9.50",
+            "public_ip": "",
+            "renewal_status": null,
+            "resource_group_id": "",
+            "role_name": null,
+            "security_enhancement_strategy": "Active",
+            "security_groups": [
+              "sg-t4n7epc8vfl1nqk4b20x"
+            ],
+            "spot_price_limit": 0,
+            "spot_strategy": "NoSpot",
+            "status": "Running",
+            "subnet_id": "vsw-t4nc93rahukvgja4k3baq",
+            "system_disk_auto_snapshot_policy_id": "",
+            "system_disk_category": "cloud_efficiency",
+            "system_disk_size": 40,
+            "tags": null,
+            "timeouts": null,
+            "user_data": null,
+            "volume_tags": {},
+            "vswitch_id": "vsw-t4nc93rahukvgja4k3baq"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "depends_on": [
+            "alicloud_security_group.hk-TRUST-SG",
+            "alicloud_vswitch.hk-data-trust-vswitch-2"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface",
+      "name": "trust-interface",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "id": "eni-t4na9qbsdb0z81lg3eim",
+            "mac": "00:16:3e:04:c2:42",
+            "name": "VM-series-trust-interface",
+            "private_ip": "10.0.6.20",
+            "private_ips": [],
+            "private_ips_count": 0,
+            "resource_group_id": "",
+            "security_groups": [
+              "sg-t4n7epc8vfl1nqk4b20x"
+            ],
+            "tags": null,
+            "vswitch_id": "vsw-t4nf6oqkqmowfhfs1dfqm"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface",
+      "name": "trust-interface-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "id": "eni-t4n1x9m4ukfcwkhvz6rb",
+            "mac": "00:16:3e:02:c4:71",
+            "name": "VM-series-trust-interface-2",
+            "private_ip": "10.0.9.20",
+            "private_ips": [],
+            "private_ips_count": 0,
+            "resource_group_id": "",
+            "security_groups": [
+              "sg-t4n7epc8vfl1nqk4b20x"
+            ],
+            "tags": null,
+            "vswitch_id": "vsw-t4nc93rahukvgja4k3baq"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface",
+      "name": "untrust-interface",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "id": "eni-t4ni4w5im9ojz7nr3d0l",
+            "mac": "00:16:3e:02:96:04",
+            "name": "VM-series-untrust-interface",
+            "private_ip": "10.0.5.20",
+            "private_ips": [],
+            "private_ips_count": 0,
+            "resource_group_id": "",
+            "security_groups": [
+              "sg-t4nfownizhl5hm78i2w1"
+            ],
+            "tags": null,
+            "vswitch_id": "vsw-t4n18enqlm2o9kkxedr9f"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface",
+      "name": "untrust-interface-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "id": "eni-t4n6l5xjhxc45iqi3nwn",
+            "mac": "00:16:3e:06:07:87",
+            "name": "VM-series-untrust-interface-2",
+            "private_ip": "10.0.8.20",
+            "private_ips": [],
+            "private_ips_count": 0,
+            "resource_group_id": "",
+            "security_groups": [
+              "sg-t4nfownizhl5hm78i2w1"
+            ],
+            "tags": null,
+            "vswitch_id": "vsw-t4n5cahansh9fndd8z7i5"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface_attachment",
+      "name": "attach-trust",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "eni-t4na9qbsdb0z81lg3eim:i-t4nba1mxjcdsky0b0pw9",
+            "instance_id": "i-t4nba1mxjcdsky0b0pw9",
+            "network_interface_id": "eni-t4na9qbsdb0z81lg3eim"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk",
+            "alicloud_network_interface.trust-interface"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface_attachment",
+      "name": "attach-trust-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "eni-t4n1x9m4ukfcwkhvz6rb:i-t4n6l5xjhxc45iqmxtcw",
+            "instance_id": "i-t4n6l5xjhxc45iqmxtcw",
+            "network_interface_id": "eni-t4n1x9m4ukfcwkhvz6rb"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk-2",
+            "alicloud_network_interface.trust-interface-2"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface_attachment",
+      "name": "attach-untrust",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "eni-t4ni4w5im9ojz7nr3d0l:i-t4nba1mxjcdsky0b0pw9",
+            "instance_id": "i-t4nba1mxjcdsky0b0pw9",
+            "network_interface_id": "eni-t4ni4w5im9ojz7nr3d0l"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk",
+            "alicloud_network_interface.untrust-interface"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_network_interface_attachment",
+      "name": "attach-untrust-2",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "eni-t4n6l5xjhxc45iqi3nwn:i-t4n6l5xjhxc45iqmxtcw",
+            "instance_id": "i-t4n6l5xjhxc45iqmxtcw",
+            "network_interface_id": "eni-t4n6l5xjhxc45iqi3nwn"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_instance.hk-2",
+            "alicloud_network_interface.untrust-interface-2"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_ram_role",
+      "name": "ram_role",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "acs:ram::5270936092657429:role/functioncompute-ram-role-axx",
+            "description": "FunctionCompute-RAM-Role.",
+            "document": "{\n    \"Statement\": [{\n            \"Action\": \"sts:AssumeRole\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\"Service\": [\"fc.aliyuncs.com\"]}}],\n    \"Version\": \"1\"}",
+            "force": true,
+            "id": "FunctionCompute-RAM-Role-axx",
+            "name": "FunctionCompute-RAM-Role-axx",
+            "ram_users": [],
+            "role_id": "348994634886464891",
+            "services": [
+              "fc.aliyuncs.com"
+            ],
+            "version": "1"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "random_string.random_name_post"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "alicloud_route_entry",
+      "name": "egress",
+      "provider": "module.fw_deployment.provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "destination_cidrblock": "0.0.0.0/0",
+            "id": "vtb-t4nn9mrlzykm83yi2grwr:vrt-t4nfuacappcqwmsabjpl6:0.0.0.0/0:NetworkInterface:eni-t4na9qbsdb0z81lg3eim",
+            "name": "",
+            "nexthop_id": "eni-t4na9qbsdb0z81lg3eim",
+            "nexthop_type": "NetworkInterface",
+            "route_table_id": "vtb-t4nn9mrlzykm83yi2grwr",
+            "router_id": "vrt-t4nfuacappcqwmsabjpl6"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_network_interface.trust-interface"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group",
+      "name": "hk-MGMT-SG",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Security Group for hk",
+            "id": "sg-t4ni3yyyio0zgkcqzokw",
+            "inner_access": true,
+            "inner_access_policy": "Accept",
+            "name": "hk-Mgmt-Security-Group",
+            "resource_group_id": "",
+            "security_group_type": "normal",
+            "tags": {},
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group",
+      "name": "hk-TRUST-SG",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Security Group for hk Trust",
+            "id": "sg-t4n7epc8vfl1nqk4b20x",
+            "inner_access": true,
+            "inner_access_policy": "Accept",
+            "name": "hk-Trust-Security-Group",
+            "resource_group_id": "",
+            "security_group_type": "normal",
+            "tags": {},
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group",
+      "name": "hk-UNTRUST-SG",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Security Group for hk Untrust",
+            "id": "sg-t4nfownizhl5hm78i2w1",
+            "inner_access": true,
+            "inner_access_policy": "Accept",
+            "name": "hk-Untrust-Security-Group",
+            "resource_group_id": "",
+            "security_group_type": "normal",
+            "tags": {},
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group_rule",
+      "name": "allow_all_443",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_ip": "0.0.0.0/0",
+            "description": "",
+            "id": "sg-t4ni3yyyio0zgkcqzokw:ingress:tcp:443/443:intranet:0.0.0.0/0:accept:1",
+            "ip_protocol": "tcp",
+            "nic_type": "intranet",
+            "policy": "accept",
+            "port_range": "443/443",
+            "priority": 1,
+            "security_group_id": "sg-t4ni3yyyio0zgkcqzokw",
+            "source_group_owner_account": "",
+            "source_security_group_id": "",
+            "type": "ingress"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_security_group.hk-MGMT-SG"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group_rule",
+      "name": "allow_all_icmp",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_ip": "0.0.0.0/0",
+            "description": "",
+            "id": "sg-t4ni3yyyio0zgkcqzokw:ingress:icmp:-1/-1:intranet:0.0.0.0/0:accept:1",
+            "ip_protocol": "icmp",
+            "nic_type": "intranet",
+            "policy": "accept",
+            "port_range": "-1/-1",
+            "priority": 1,
+            "security_group_id": "sg-t4ni3yyyio0zgkcqzokw",
+            "source_group_owner_account": "",
+            "source_security_group_id": "",
+            "type": "ingress"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_security_group.hk-MGMT-SG"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group_rule",
+      "name": "allow_tcp__mgmt_22",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_ip": "0.0.0.0/0",
+            "description": "",
+            "id": "sg-t4ni3yyyio0zgkcqzokw:ingress:tcp:22/22:intranet:0.0.0.0/0:accept:1",
+            "ip_protocol": "tcp",
+            "nic_type": "intranet",
+            "policy": "accept",
+            "port_range": "22/22",
+            "priority": 1,
+            "security_group_id": "sg-t4ni3yyyio0zgkcqzokw",
+            "source_group_owner_account": "",
+            "source_security_group_id": "",
+            "type": "ingress"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_security_group.hk-MGMT-SG"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group_rule",
+      "name": "allow_tcp_trust_all",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_ip": "0.0.0.0/0",
+            "description": "",
+            "id": "sg-t4n7epc8vfl1nqk4b20x:ingress:tcp:1/65535:intranet:0.0.0.0/0:accept:100",
+            "ip_protocol": "tcp",
+            "nic_type": "intranet",
+            "policy": "accept",
+            "port_range": "1/65535",
+            "priority": 100,
+            "security_group_id": "sg-t4n7epc8vfl1nqk4b20x",
+            "source_group_owner_account": "",
+            "source_security_group_id": "",
+            "type": "ingress"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_security_group.hk-TRUST-SG"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_security_group_rule",
+      "name": "allow_tcp_untrust_all",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_ip": "0.0.0.0/0",
+            "description": "",
+            "id": "sg-t4nfownizhl5hm78i2w1:ingress:tcp:1/65535:intranet:0.0.0.0/0:accept:1",
+            "ip_protocol": "tcp",
+            "nic_type": "intranet",
+            "policy": "accept",
+            "port_range": "1/65535",
+            "priority": 1,
+            "security_group_id": "sg-t4nfownizhl5hm78i2w1",
+            "source_group_owner_account": "",
+            "source_security_group_id": "",
+            "type": "ingress"
+          },
+          "private": "bnVsbA==",
+          "depends_on": [
+            "alicloud_security_group.hk-UNTRUST-SG"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.slb",
+      "mode": "managed",
+      "type": "alicloud_slb",
+      "name": "this",
+      "each": "list",
+      "provider": "module.slb.provider.alicloud",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "address": "161.117.179.87",
+            "address_ip_version": "ipv4",
+            "address_type": "internet",
+            "bandwidth": 5120,
+            "delete_protection": "off",
+            "id": "lb-gs58mlavon9tmtm6mmhkz",
+            "instance_charge_type": "PostPaid",
+            "internet": true,
+            "internet_charge_type": "PayByTraffic",
+            "master_zone_id": "ap-southeast-1b",
+            "name": "tf-module-slb",
+            "period": null,
+            "resource_group_id": "rg-acfntxhh7nl4ofi",
+            "slave_zone_id": "ap-southeast-1c",
+            "specification": "",
+            "tags": null,
+            "vswitch_id": ""
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.slb",
+      "mode": "managed",
+      "type": "alicloud_slb_backend_server",
+      "name": "this",
+      "each": "list",
+      "provider": "module.slb.provider.alicloud",
+      "instances": []
+    },
+    {
+      "module": "module.slb",
+      "mode": "managed",
+      "type": "alicloud_slb_master_slave_server_group",
+      "name": "this",
+      "each": "list",
+      "provider": "module.slb.provider.alicloud",
+      "instances": []
+    },
+    {
+      "module": "module.slb",
+      "mode": "managed",
+      "type": "alicloud_slb_server_group",
+      "name": "this",
+      "each": "list",
+      "provider": "module.slb.provider.alicloud",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "delete_protection_validation": false,
+            "id": "rsp-gs5zxv4juejul",
+            "load_balancer_id": "lb-gs58mlavon9tmtm6mmhkz",
+            "name": "tf-module-slb-virtual",
+            "servers": [
+              {
+                "port": 80,
+                "server_ids": [
+                  "i-t4naikpg0imezbjtyq5w",
+                  " i-t4n2n3zixk2qxzmery2w"
+                ],
+                "type": "ecs",
+                "weight": 50
+              }
+            ]
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vpc",
+      "name": "hk_vpc",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr_block": "10.0.0.0/16",
+            "description": "VPC for VMFW in ap-southeast-1",
+            "id": "vpc-t4ndqy04l6e4nu1zmm6a1",
+            "name": "VPC_HA-axx",
+            "resource_group_id": "rg-acfntxhh7nl4ofi",
+            "route_table_id": "vtb-t4nn9mrlzykm83yi2grwr",
+            "router_id": "vrt-t4nfuacappcqwmsabjpl6",
+            "router_table_id": "vtb-t4nn9mrlzykm83yi2grwr",
+            "tags": {},
+            "timeouts": null
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "random_string.random_name_post"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-data-trust-vswitch",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1a",
+            "cidr_block": "10.0.6.0/24",
+            "description": "VSwitch for VM-series hk Trust interface",
+            "id": "vsw-t4nf6oqkqmowfhfs1dfqm",
+            "name": "hk-Private-VSwitch",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-data-trust-vswitch-2",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1b",
+            "cidr_block": "10.0.9.0/24",
+            "description": "VSwitch for VM-series hk Trust interface-2",
+            "id": "vsw-t4nc93rahukvgja4k3baq",
+            "name": "hk-Private-VSwitch-2",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-data-untrust-vswitch",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1a",
+            "cidr_block": "10.0.5.0/24",
+            "description": "VSwitch for VM-series hk Untrust interface",
+            "id": "vsw-t4n18enqlm2o9kkxedr9f",
+            "name": "hk-Public-VSwitch",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-data-untrust-vswitch-2",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1b",
+            "cidr_block": "10.0.8.0/24",
+            "description": "VSwitch for VM-series hk Untrust interface-2",
+            "id": "vsw-t4n5cahansh9fndd8z7i5",
+            "name": "hk-Public-VSwitch-2",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-mgmt-vswitch",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1a",
+            "cidr_block": "10.0.4.0/24",
+            "description": "VSwitch for VM-series hk Mgmt",
+            "id": "vsw-t4ned6bngimhu1c90otx6",
+            "name": "hk-Mgmt-VSwitch",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "alicloud_vswitch",
+      "name": "hk-mgmt-vswitch-2",
+      "provider": "provider.alicloud.hk",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "ap-southeast-1b",
+            "cidr_block": "10.0.7.0/24",
+            "description": "VSwitch for VM-series hk Mgmt-2",
+            "id": "vsw-t4n3e9ynz8hfms5m01wkg",
+            "name": "hk-Mgmt-VSwitch-2",
+            "tags": {},
+            "timeouts": null,
+            "vpc_id": "vpc-t4ndqy04l6e4nu1zmm6a1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "depends_on": [
+            "alicloud_vpc.hk_vpc",
+            "data.alicloud_zones.hk-zone"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.fw_deployment",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "dependency_setter",
+      "provider": "provider.null",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "8611947202843832968",
+            "triggers": null
+          },
+          "depends_on": [
+            "alicloud_eip_association.hk-EIP-Association",
+            "alicloud_eip_association.hk-EIP-Association-2",
+            "alicloud_instance.hk",
+            "alicloud_instance.hk-2",
+            "alicloud_network_interface.trust-interface",
+            "alicloud_network_interface.trust-interface-2",
+            "alicloud_network_interface.untrust-interface",
+            "alicloud_network_interface.untrust-interface-2",
+            "alicloud_network_interface_attachment.attach-trust",
+            "alicloud_network_interface_attachment.attach-trust-2",
+            "alicloud_network_interface_attachment.attach-untrust",
+            "alicloud_network_interface_attachment.attach-untrust-2"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_string",
+      "name": "random_name_post",
+      "provider": "provider.random",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "axx",
+            "keepers": null,
+            "length": 3,
+            "lower": true,
+            "min_lower": 3,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "override_special": "",
+            "result": "axx",
+            "special": true,
+            "upper": true
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}
