@@ -58,12 +58,17 @@ Until the "API_KEY" hhas a value back, like below:
 Outputs:
 
 SLB-IP-Address = 10.0.6.82
+
 VM-Series-MGMTIP = 47.242.129.211
+
 VM-Series-MGMTIP-2 = 47.242.92.207
+
 VM-Series-UNTRUSTIP = 8.210.183.24 *** Please manually attach this IP to Untrust ENI. ***
+
 
 8. Access the Primary and Standby NGFW with the IP address output "VM-Series-MGMTIP", "VM-Series-MGMTIP-2" with username and password for your image.
 Update the NAT policy DNAT address to the output of "SLB-IP-Address = 10.0.6.82" for both NGFW.
+
 ![image](https://github.com/danielma911/Alicloud_VM_HA/blob/master/imgs/DNAT.png)
 
 9. Licensing both the Primary and Standby NGFW
