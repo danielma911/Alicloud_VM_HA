@@ -48,10 +48,8 @@ The Terraform deployment below architecture:
     VM-Series-UNTRUSTIP = 8.210.183.24 *** Please manually attach this IP to Untrust ENI. ***
 
 
-6. Access the Primary and Standby NGFW with the IP address output "VM-Series-MGMTIP", "VM-Series-MGMTIP-2" with username and password for your image.
-Update the NAT policy DNAT address to the output of "SLB-IP-Address = 10.0.6.82" for both NGFW.
+6. In folder FW_config, go into each ngfw sub-folder to update the SLB-IP-Address, and management IP address from the outputs "VM-Series-MGMTIP", "VM-Series-MGMTIP-2" "SLB-IP-Address" for both NGFW. Run: terraform init; terraform apply; accordingly. This will configure the NGFW with interface address, Zones, NAT policy and security policy necessary for the demo environment. Auto Commit is enabled, you DO NOT need to manually go into console and commit.
 
-![image](https://github.com/danielma911/Alicloud_VM_HA/blob/master/imgs/DNAT.png)
 
 7. Licensing both the Primary and Standby NGFW
 
