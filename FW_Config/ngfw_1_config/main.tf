@@ -135,7 +135,7 @@ resource "panos_nat_rule_group" "web-nat" {
             source {}
             destination {
                 static_translation {
-                    address = "var.slb_ip"
+                    address = "${var.slb_ip}"
                     port = 80
                 }
             }
@@ -180,5 +180,5 @@ resource "null_resource" "run_cmd" {
   provisioner "local-exec" {
     command = "expect ./fwcommit.expect ${var.fwip_1} ${var.fwusername} ${var.fwpassword}" 
     }
-   depends_on = [ "panos_nat_rule_group.SRC-NAT-Internet", "panos_nat_rule_group.web-nat"]
+   depends_on = [ "panos_nat_rule_group.SRC-NAT-Internet", "panos_nat_rule_group.web-nat", "panos_security_policy.fw-rules"]
 }

@@ -13,36 +13,16 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
-# Configure the Alicloud Provider for R1 region
-####################################
-variable "access_key" {
-    default = "Update Here"
-}
-
-variable "secret_key" {
-    default = "Update Here"
-}
-
-variable "region" {
-    default = "cn-hongkong"
-}
 
 variable "slb_ip" {
-    default = "Please Update the Internal SLB IP Address Here"
+    default = "Update_The_Internal_SLB_IP_address_Here"
 }
-provider "alicloud" {
-  access_key = "${var.access_key}"
-  secret_key = "${var.secret_key}"
-  region     = "${var.region}"
-  alias      = "r1"
-}
-
 
 
 #Information for the PANW Provider
 ####################################
 variable fwip_2 {
-    default = "Update NGFW 2 management IP address Here""
+    default = "Update_NGFW_2_MGMT_address_Here
 }
 variable fwusername {
     default = "admin"
@@ -57,7 +37,6 @@ provider "panos" {
     hostname = "${var.fwip_2}"
     username = "${var.fwusername}"
     password = "${var.fwpassword}"
-    alisa    = "ngfw2"
 }
 
 
