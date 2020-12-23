@@ -38,9 +38,15 @@ provider alicloud {
   alias      = "provider"
 }
 
+data "alicloud_images" "vmseries" {
+  provider              = "alicloud.provider"
+  owners       = "marketplace"
+  name_regex   = "VM-Series v9.1.3 9.1.3"
+}
+
 resource "alicloud_instance" "ngfw" {
   provider              = "alicloud.provider"
-  image_id              = "${var.fwimageid_pri}"
+  image_id              = data.alicloud_images.vmseries.images[0].id
   instance_type         = "${var.instancetype}"
   system_disk_size      = 80
   system_disk_category  = "cloud_efficiency"
@@ -57,7 +63,7 @@ resource "alicloud_instance" "ngfw" {
 
 resource "alicloud_instance" "ngfw-2" {
   provider              = "alicloud.provider"
-  image_id              = "${var.fwimageid_bak}"
+  image_id              = data.alicloud_images.vmseries.images[0].id
   instance_type         = "${var.instancetype}"
   system_disk_size      = 80
   system_disk_category  = "cloud_efficiency"

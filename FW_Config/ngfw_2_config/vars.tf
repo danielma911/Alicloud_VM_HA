@@ -22,13 +22,13 @@ variable "slb_ip" {
 #Information for the PANW Provider
 ####################################
 variable fwip_2 {
-    default = "Update_NGFW_2_MGMT_address_Here
+    default = "Update_NGFW_2_MGMT_address_Here"
 }
 variable fwusername {
     default = "admin"
 }
 variable fwpassword {
-    default = "admin"   #This is Default, change this if the ngfw password has been changed.
+    default = "Paloalto123!"   #This is Default, change this if the ngfw password has been changed.
 }
 
 # Configure the panos provider

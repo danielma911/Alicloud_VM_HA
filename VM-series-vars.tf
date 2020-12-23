@@ -9,7 +9,11 @@ variable username {
     default = "admin"
 }
 variable password {
-    default = "Paloalto123"
+    default = "admin"
+}
+
+variable new_password {
+    default = "Paloalto123!"
 }
 
 variable "vm-series_instance_type" {

@@ -295,6 +295,16 @@ resource "alicloud_slb_listener" "default" {
   health_check_interval     = 5
 }
 
+resource "null_resource" "update_config" {
+  provisioner "local-exec" {
+    command = "python3 ./change_passwd.py"
+  }
+
+  depends_on = [
+    module.fw_deployment
+  ]
+}
+
 data "external" "apikey" {
   program = [
     "sh",
@@ -304,8 +314,9 @@ data "external" "apikey" {
   query = {
     eip         = "${alicloud_eip.MGMT-EIP.ip_address}"
     username    = "${var.username}"
-    password    = "${var.password}"
+    password    = "${var.new_password}"
   }
+  depends_on = [null_resource.update_config]
 }
 ####################################################################
 #Calling the deployment modules for the VM-Series 
@@ -368,7 +379,7 @@ resource "alicloud_fc_function" "active-standby" {
   handler     = "index.handler"
   timeout     = "60"
   environment_variables = {
-    managedby = "Created with Mason Yan and Daniel Ma"
+    managedby = "Created by Mason Yan and Daniel Ma"
     API_KEY   = "${data.external.apikey.result.api_key}"
     BACKUP_ENI = "${module.fw_deployment.trust-interface-bak}"
     PRIMARY_ENI = "${module.fw_deployment.trust-interface-pri}"
@@ -512,19 +523,6 @@ resource "alicloud_ram_role_policy_attachment" "attach" {
   role_name = alicloud_ram_role.ram_role.name
 }
 
-
-output "VM-Series-MGMTIP" {
-  value = "${alicloud_eip.MGMT-EIP.ip_address}"  
-}
-output "VM-Series-MGMTIP-2" {
-  value = "${alicloud_eip.MGMT-EIP-2.ip_address}"  
-}
-output "SLB-IP-Address" {
-  value = "${module.slb.this_slb_address}"  
-}
-output "VM-Series-UNTRUSTIP" {
-  value = "${alicloud_eip.UNTRUST-EIP.ip_address} *** Please manually attach this IP to Untrust ENI. *** \n\n"
-}
 
 
 
