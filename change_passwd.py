@@ -58,13 +58,9 @@ outputs = tf.output()
 fw1_mgmt = outputs['VM-Series-MGMTIP']['value']
 fw2_mgmt = outputs['VM-Series-MGMTIP-2']['value']
 
-# fw1_mgmt = "47.242.173.151"
-# fw2_mgmt = "47.242.231.19"
 username = "admin"
 default_password = outputs['password_default']['value']
 new_password = outputs['password_new']['value']
-# default_password = "admin"
-# new_password = "Paloalto123!"
 
 # Wait for VM-Series to complete booting process
 time.sleep(480)
